@@ -16,6 +16,12 @@ class Modal extends HTMLElement {
                     pointer-events: none;
                 }
 
+                :host([opened]) #backdrop,
+                :host([opened]) #modal {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+
                 #modal {
                     position: fixed;
                     top: 15vh;
