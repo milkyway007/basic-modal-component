@@ -19,15 +19,28 @@
   </head>
   <body>
     <ll-modal>
-      With your confirmation you agree to pay the full amount!
+      <h1 slot="title">Please Confirm</h1>
+      <p>With your confirmation you agree to pay the full amount!</p>
     </ll-modal>
     <p>Please confirm your choice.</p>
     <button>Show details and confirm.</button>
     <script>
       const confirmButton = document.querySelector('button');
       const modal = document.querySelector('ll-modal');
+
+      modal.addEventListener('confirm', () => {
+        console.log('Confirmed...');
+      });
+
+      modal.addEventListener('cancel', () => {
+        console.log('Canceled...');
+      });
+
       confirmButton.addEventListener('click', () => {
-        modal.setAttribute('opened', '');
+        if (!modal.isOpen) {
+          modal.open();
+        }
+        
       });
     </script>
   </body>
